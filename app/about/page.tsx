@@ -29,6 +29,8 @@ export default async function About() {
   }
 
   const featuredImage = aboutPage.metadata?.featured_image
+  // Changed: Added type safety check to ensure team_members is an array
+  const teamMembers = Array.isArray(aboutPage.metadata?.team_members) ? aboutPage.metadata.team_members : []
 
   return (
     <div className="py-16">
@@ -77,11 +79,11 @@ export default async function About() {
         )}
 
         {/* Team Members Section */}
-        {aboutPage.metadata?.team_members && aboutPage.metadata.team_members.length > 0 && (
+        {teamMembers.length > 0 && (
           <div>
             <h2 className="text-3xl font-bold mb-8">Meet Our Team</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {aboutPage.metadata.team_members.map((member, index) => (
+              {teamMembers.map((member, index) => (
                 <div key={index} className="bg-white rounded-xl shadow-md p-6">
                   {member.photo && (
                     <img
