@@ -13,14 +13,14 @@ export default async function About() {
     return (
       <div className="py-16">
         <div className="container max-w-4xl">
-          <h1 className="text-5xl font-bold mb-8">About Us</h1>
-          <p className="text-xl text-gray-600 mb-8">
+          <h1 className="text-5xl font-bold mb-8 text-gray-900 dark:text-white">About Us</h1>
+          <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
             Welcome to Delicious Recipes! We're passionate about sharing amazing food experiences with the world.
           </p>
-          <p className="text-gray-700 mb-4">
+          <p className="text-gray-700 dark:text-gray-300 mb-4">
             Our mission is to inspire home cooks with beautiful, delicious, and achievable recipes from talented chefs around the world.
           </p>
-          <p className="text-gray-700">
+          <p className="text-gray-700 dark:text-gray-300">
             To customize this page, create an "About Pages" object in your Cosmic CMS dashboard with the slug "about".
           </p>
         </div>
@@ -37,10 +37,10 @@ export default async function About() {
       <div className="container max-w-4xl">
         {/* Hero Section */}
         <div className="mb-16">
-          <h1 className="text-5xl font-bold mb-6">{aboutPage.title}</h1>
+          <h1 className="text-5xl font-bold mb-6 text-gray-900 dark:text-white">{aboutPage.title}</h1>
           
           {aboutPage.metadata?.headline && (
-            <p className="text-2xl text-gray-700 mb-8 font-medium">
+            <p className="text-2xl text-gray-700 dark:text-gray-300 mb-8 font-medium">
               {aboutPage.metadata.headline}
             </p>
           )}
@@ -58,7 +58,7 @@ export default async function About() {
           )}
 
           {aboutPage.metadata?.description && (
-            <div className="prose prose-lg max-w-none prose-headings:font-bold prose-p:text-gray-700 prose-p:mb-4">
+            <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:mb-4">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>
                 {aboutPage.metadata.description}
               </ReactMarkdown>
@@ -68,9 +68,9 @@ export default async function About() {
 
         {/* Mission Section */}
         {aboutPage.metadata?.mission && (
-          <div className="mb-16 bg-primary-50 rounded-2xl p-8">
-            <h2 className="text-3xl font-bold mb-6">Our Mission</h2>
-            <div className="prose prose-lg max-w-none prose-p:text-gray-700">
+          <div className="mb-16 bg-primary-50 dark:bg-primary-900/20 rounded-2xl p-8 border border-primary-100 dark:border-primary-800">
+            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Our Mission</h2>
+            <div className="prose prose-lg max-w-none prose-p:text-gray-700 dark:prose-p:text-gray-300">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>
                 {aboutPage.metadata.mission}
               </ReactMarkdown>
@@ -81,10 +81,10 @@ export default async function About() {
         {/* Team Members Section */}
         {teamMembers.length > 0 && (
           <div>
-            <h2 className="text-3xl font-bold mb-8">Meet Our Team</h2>
+            <h2 className="text-3xl font-bold mb-8 text-gray-900 dark:text-white">Meet Our Team</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {teamMembers.map((member, index) => (
-                <div key={index} className="bg-white rounded-xl shadow-md p-6">
+                <div key={index} className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 border border-gray-100 dark:border-gray-700">
                   {member.photo && (
                     <img
                       src={`${member.photo.imgix_url}?w=256&h=256&fit=crop&auto=format,compress`}
@@ -94,9 +94,9 @@ export default async function About() {
                       height={96}
                     />
                   )}
-                  <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                  <p className="text-primary-600 font-medium mb-3">{member.role}</p>
-                  <p className="text-gray-700">{member.bio}</p>
+                  <h3 className="text-xl font-bold mb-1 text-gray-900 dark:text-white">{member.name}</h3>
+                  <p className="text-primary-600 dark:text-primary-400 font-medium mb-3">{member.role}</p>
+                  <p className="text-gray-700 dark:text-gray-300">{member.bio}</p>
                 </div>
               ))}
             </div>

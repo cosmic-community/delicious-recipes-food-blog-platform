@@ -15,13 +15,13 @@ export default async function HomePage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-500 to-primary-700 text-white py-20">
+      <section className="bg-gradient-to-br from-primary-500 to-primary-700 dark:from-primary-600 dark:to-primary-800 text-white py-20 transition-colors duration-200">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6">
               Discover Delicious Recipes
             </h1>
-            <p className="text-xl mb-8 text-primary-100">
+            <p className="text-xl mb-8 text-primary-100 dark:text-primary-200">
               Explore mouth-watering dishes from talented chefs. From breakfast to desserts, find your next favorite recipe.
             </p>
             <Link 
@@ -35,9 +35,9 @@ export default async function HomePage() {
       </section>
 
       {/* Categories */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gray-50 dark:bg-gray-800 transition-colors duration-200">
         <div className="container">
-          <h2 className="text-3xl font-bold text-center mb-12">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
             Browse by Category
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -45,12 +45,12 @@ export default async function HomePage() {
               <Link
                 key={category.id}
                 href={`/categories/${category.slug}`}
-                className="bg-white rounded-xl shadow-md hover:shadow-xl transition-shadow p-8 text-center group"
+                className="bg-white dark:bg-gray-900 rounded-xl shadow-md hover:shadow-xl transition-all p-8 text-center group border border-gray-100 dark:border-gray-700"
               >
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary-600 transition-colors">
+                <h3 className="text-2xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                   {category.title}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-600 dark:text-gray-400">
                   {category.metadata?.description || 'Explore recipes'}
                 </p>
               </Link>
@@ -63,10 +63,10 @@ export default async function HomePage() {
       <section className="py-16">
         <div className="container">
           <div className="flex justify-between items-center mb-12">
-            <h2 className="text-3xl font-bold">Featured Recipes</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Featured Recipes</h2>
             <Link 
               href="/recipes"
-              className="text-primary-600 hover:text-primary-700 font-semibold"
+              className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-500 font-semibold"
             >
               View All →
             </Link>

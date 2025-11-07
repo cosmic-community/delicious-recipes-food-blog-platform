@@ -18,7 +18,7 @@ export default function CategoryFilter({ categories }: CategoryFilterProps) {
         className={`px-6 py-2 rounded-full font-semibold transition-colors ${
           pathname === '/recipes'
             ? 'bg-primary-600 text-white'
-            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+            : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
         }`}
       >
         All Recipes
@@ -30,7 +30,7 @@ export default function CategoryFilter({ categories }: CategoryFilterProps) {
           className={`px-6 py-2 rounded-full font-semibold transition-colors ${
             pathname === `/categories/${category.slug}`
               ? 'bg-primary-600 text-white'
-              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
           }`}
         >
           {category.title}

@@ -41,20 +41,20 @@ export default async function RecipePage({
           {category && (
             <Link 
               href={`/categories/${category.slug}`}
-              className="inline-block text-primary-600 hover:text-primary-700 font-semibold mb-4"
+              className="inline-block text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-500 font-semibold mb-4"
             >
               ← {category.title}
             </Link>
           )}
-          <h1 className="text-5xl font-bold mb-4">{post.title}</h1>
+          <h1 className="text-5xl font-bold mb-4 text-gray-900 dark:text-white">{post.title}</h1>
           {post.metadata?.description && (
-            <p className="text-xl text-gray-600 mb-6">
+            <p className="text-xl text-gray-600 dark:text-gray-400 mb-6">
               {post.metadata.description}
             </p>
           )}
           
           {/* Meta info */}
-          <div className="flex flex-wrap gap-6 text-gray-600">
+          <div className="flex flex-wrap gap-6 text-gray-600 dark:text-gray-400">
             {post.metadata?.cooking_time && (
               <div className="flex items-center gap-2">
                 <span className="text-2xl">⏱️</span>
@@ -87,7 +87,7 @@ export default async function RecipePage({
         {author && (
           <Link
             href={`/authors/${author.slug}`}
-            className="flex items-center gap-4 mb-12 p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
+            className="flex items-center gap-4 mb-12 p-6 bg-gray-50 dark:bg-gray-800 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors border border-gray-100 dark:border-gray-700"
           >
             {author.metadata?.profile_photo && (
               <img
@@ -99,8 +99,8 @@ export default async function RecipePage({
               />
             )}
             <div>
-              <p className="text-sm text-gray-600">Recipe by</p>
-              <p className="text-lg font-semibold">{author.title}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400">Recipe by</p>
+              <p className="text-lg font-semibold text-gray-900 dark:text-white">{author.title}</p>
             </div>
           </Link>
         )}
@@ -108,12 +108,12 @@ export default async function RecipePage({
         {/* Ingredients */}
         {ingredients.length > 0 && (
           <div className="mb-12">
-            <h2 className="text-3xl font-bold mb-6">Ingredients</h2>
-            <div className="bg-primary-50 rounded-xl p-8">
+            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Ingredients</h2>
+            <div className="bg-primary-50 dark:bg-primary-900/20 rounded-xl p-8 border border-primary-100 dark:border-primary-800">
               <ul className="space-y-3">
                 {ingredients.map((ingredient, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <span className="text-primary-600 mt-1">✓</span>
+                  <li key={index} className="flex items-start gap-3 text-gray-900 dark:text-gray-100">
+                    <span className="text-primary-600 dark:text-primary-400 mt-1">✓</span>
                     <span>{ingredient}</span>
                   </li>
                 ))}
@@ -125,7 +125,7 @@ export default async function RecipePage({
         {/* Instructions */}
         {post.metadata?.instructions && (
           <div className="mb-12">
-            <div className="prose prose-lg max-w-none prose-headings:font-bold prose-h2:text-3xl prose-h2:mb-6 prose-h2:mt-8 prose-p:mb-4 prose-li:mb-2 prose-strong:text-primary-700">
+            <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white prose-h2:text-3xl prose-h2:mb-6 prose-h2:mt-8 prose-p:mb-4 prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-li:mb-2 prose-li:text-gray-700 dark:prose-li:text-gray-300 prose-strong:text-primary-700 dark:prose-strong:text-primary-400">
               <ReactMarkdown remarkPlugins={[remarkGfm]}>
                 {post.metadata.instructions}
               </ReactMarkdown>
@@ -134,10 +134,10 @@ export default async function RecipePage({
         )}
 
         {/* Back link */}
-        <div className="pt-8 border-t">
+        <div className="pt-8 border-t border-gray-200 dark:border-gray-700">
           <Link 
             href="/recipes"
-            className="text-primary-600 hover:text-primary-700 font-semibold"
+            className="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-500 font-semibold"
           >
             ← Back to all recipes
           </Link>
