@@ -13,8 +13,8 @@ export default async function RecipesPage() {
     <div className="py-16">
       <div className="container">
         <div className="mb-12">
-          <h1 className="text-4xl font-bold mb-4">All Recipes</h1>
-          <p className="text-xl text-gray-600">
+          <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">All Recipes</h1>
+          <p className="text-xl text-gray-600 dark:text-gray-400">
             Discover our complete collection of delicious recipes
           </p>
         </div>
@@ -29,7 +29,7 @@ export default async function RecipesPage() {
 
         {posts.length === 0 && (
           <div className="text-center py-16">
-            <p className="text-xl text-gray-600">No recipes found</p>
+            <p className="text-xl text-gray-600 dark:text-gray-400">No recipes found</p>
           </div>
         )}
       </div>

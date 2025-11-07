@@ -13,7 +13,7 @@ export default function RecipeCard({ post }: RecipeCardProps) {
   return (
     <Link
       href={`/recipes/${post.slug}`}
-      className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden"
+      className="group bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden border border-gray-100 dark:border-gray-700"
     >
       {featuredImage && (
         <div className="aspect-video overflow-hidden">
@@ -29,22 +29,22 @@ export default function RecipeCard({ post }: RecipeCardProps) {
       
       <div className="p-6">
         {category && (
-          <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 text-sm font-semibold rounded-full mb-3">
+          <span className="inline-block px-3 py-1 bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300 text-sm font-semibold rounded-full mb-3">
             {category.title}
           </span>
         )}
         
-        <h3 className="text-2xl font-bold mb-2 group-hover:text-primary-600 transition-colors">
+        <h3 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
           {post.title}
         </h3>
         
         {post.metadata?.description && (
-          <p className="text-gray-600 mb-4 line-clamp-2">
+          <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
             {post.metadata.description}
           </p>
         )}
         
-        <div className="flex items-center justify-between text-sm text-gray-500">
+        <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
           {author && (
             <div className="flex items-center gap-2">
               {author.metadata?.profile_photo && (

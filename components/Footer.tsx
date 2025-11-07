@@ -1,10 +1,14 @@
+'use client'
+
 import Link from 'next/link'
+import { useTheme } from '@/contexts/ThemeContext'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const { theme, toggleTheme } = useTheme()
 
   return (
-    <footer className="bg-gray-900 text-white py-12 mt-16">
+    <footer className="bg-gray-900 dark:bg-gray-950 text-white py-12 mt-16 transition-colors duration-200">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
@@ -12,7 +16,7 @@ export default function Footer() {
               <span className="text-3xl">🍳</span>
               <span>Delicious Recipes</span>
             </div>
-            <p className="text-gray-400">
+            <p className="text-gray-400 dark:text-gray-500">
               Discover amazing recipes from talented chefs around the world.
             </p>
           </div>
@@ -21,12 +25,12 @@ export default function Footer() {
             <h3 className="font-bold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/" className="text-gray-400 dark:text-gray-500 hover:text-white transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/recipes" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/recipes" className="text-gray-400 dark:text-gray-500 hover:text-white transition-colors">
                   All Recipes
                 </Link>
               </li>
@@ -40,7 +44,7 @@ export default function Footer() {
                 href="https://twitter.com/deliciousrecipes" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 dark:text-gray-500 hover:text-white transition-colors"
                 aria-label="Follow us on X (formerly Twitter)"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -51,7 +55,7 @@ export default function Footer() {
                 href="https://instagram.com/deliciousrecipes" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 dark:text-gray-500 hover:text-white transition-colors"
                 aria-label="Follow us on Instagram"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -62,7 +66,7 @@ export default function Footer() {
                 href="https://facebook.com/deliciousrecipes" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 dark:text-gray-500 hover:text-white transition-colors"
                 aria-label="Follow us on Facebook"
               >
                 <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -74,7 +78,7 @@ export default function Footer() {
           
           <div>
             <h3 className="font-bold text-lg mb-4">About</h3>
-            <p className="text-gray-400">
+            <p className="text-gray-400 dark:text-gray-500 mb-4">
               A beautiful food blog powered by{' '}
               <a 
                 href="https://www.cosmicjs.com" 
@@ -85,10 +89,33 @@ export default function Footer() {
                 Cosmic
               </a>
             </p>
+            
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="flex items-center gap-2 px-4 py-2 bg-gray-800 dark:bg-gray-900 hover:bg-gray-700 dark:hover:bg-gray-800 rounded-lg transition-colors border border-gray-700 dark:border-gray-600"
+              aria-label="Toggle theme"
+            >
+              {theme === 'light' ? (
+                <>
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                  </svg>
+                  <span className="text-sm font-medium">Dark Mode</span>
+                </>
+              ) : (
+                <>
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                  <span className="text-sm font-medium">Light Mode</span>
+                </>
+              )}
+            </button>
           </div>
         </div>
         
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+        <div className="border-t border-gray-800 dark:border-gray-700 mt-8 pt-8 text-center text-gray-400 dark:text-gray-500">
           <p>&copy; {currentYear} Delicious Recipes. All rights reserved.</p>
         </div>
       </div>
